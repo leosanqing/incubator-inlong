@@ -18,18 +18,13 @@
 package org.apache.inlong.manager.dao.config;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
-import java.util.Objects;
 
 /**
  * Main data source config
@@ -40,28 +35,15 @@ import java.util.Objects;
         sqlSessionTemplateRef = "sqlSessionTemplate")
 public class JDBCSourceConfig {
 
+    /**
+     * this is unnecessary
+     * @return
+     */
     @Bean(name = "dataSource")
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource.druid")
     public DataSource dataSource() {
         return DruidDataSourceBuilder.create().build();
-    }
-
-    @Bean
-    @Primary
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
-        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(dataSource());
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mappers/*.xml"));
-
-        Objects.requireNonNull(bean.getObject()).getConfiguration().setMapUnderscoreToCamelCase(true);
-        return bean.getObject();
-    }
-
-    @Bean
-    @Primary
-    public SqlSessionTemplate sqlSessionTemplate() throws Exception {
-        return new SqlSessionTemplate(sqlSessionFactory());
     }
 
 }

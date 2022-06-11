@@ -19,43 +19,41 @@ package org.apache.inlong.manager.common.beans;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Pagination request
- */
-@ApiModel(value = "Pagination request")
-public class PageRequest {
+@Data
+@ApiModel("pagination")
+public final class PageResult<T> implements Serializable {
 
-    @NotNull
-    @Min(1)
-    @Max(500)
-    @ApiModelProperty(value = "current page, default 1", required = true, example = "1")
-    private int pageNum = 1;
+    @ApiModelProperty(value = "data", required = true)
+    private List<T> list;
 
-    @NotNull
-    @Max(200)
-    @ApiModelProperty(value = "page size, default 10", required = true, example = "10")
-    private int pageSize = 10;
+    @ApiModelProperty(value = "count", required = true)
+    private Long total;
 
-    public int getPageNum() {
-        return pageNum;
+    public PageResult() {
     }
 
-    public PageRequest setPageNum(int pageNum) {
-        this.pageNum = pageNum;
-        return this;
+    public PageResult(List<T> list, Long total) {
+        this.list = list;
+        this.total = total;
     }
 
-    public int getPageSize() {
-        return pageSize;
+    public PageResult(Long total) {
+        this.list = new ArrayList<>();
+        this.total = total;
     }
 
-    public PageRequest setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-        return this;
+    public static <T> PageResult<T> empty() {
+        return new PageResult<>(0L);
     }
+
+    public static <T> PageResult<T> empty(Long total) {
+        return new PageResult<>(total);
+    }
+
 }

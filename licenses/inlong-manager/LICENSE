@@ -511,6 +511,7 @@ The text of each license is the standard Apache 2.0 license.
   org.apache.calcite.avatica:avatica-core:1.17.0 - Apache Calcite Avatica (https://calcite.apache.org/avatica), (The Apache License, Version 2.0)
   org.apache.avro:avro:1.10.1 - Apache Avro (https://avro.apache.org), (The Apache Software License, Version 2.0)
   org.apache.avro:avro-protobuf:1.10.2 - Apache Avro Protobuf Compatibility (https://avro.apache.org/avro-protobuf), (Apache License, Version 2.0)
+  com.baomidou:mybatis-plus:3.5.2 - Mybatis-Plus (https://github.com/baomidou/mybatis-plus), (Apache License, Version 2.0)
   com.jolbox:bonecp:0.8.0.RELEASE - BoneCP (https://github.com/wwadge/bonecp/tree/bonecp-parent-0.8.0.RELEASE), (Apache 2.0)
   org.apache.pulsar:bouncy-castle-bc:pkg:2.8.1 - Apache Pulsar :: Bouncy Castle :: BC (https://github.com/apache/pulsar/tree/master/bouncy-castle/bc), (Apache License, Version 2.0)
   net.bytebuddy:byte-buddy-agent:1.11.13 - Byte Buddy agent (https://github.com/raphw/byte-buddy/tree/byte-buddy-1.11.13), (Apache License, Version 2.0)

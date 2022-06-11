@@ -21,17 +21,16 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.inlong.manager.common.pojo.group.InlongGroupBriefInfo;
 import org.apache.inlong.manager.common.pojo.group.InlongGroupPageRequest;
 import org.apache.inlong.manager.dao.entity.InlongGroupEntity;
+import org.apache.inlong.manager.dao.mybatis.mapper.BaseMapperX;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
 @Repository
-public interface InlongGroupEntityMapper {
+public interface InlongGroupEntityMapper extends BaseMapperX<InlongGroupEntity> {
 
-    int insert(InlongGroupEntity record);
-
-    InlongGroupEntity selectByPrimaryKey(Integer id);
+    // InlongGroupEntity selectByPrimaryKey(Integer id);
 
     List<Map<String, Object>> countGroupByUser(@Param(value = "username") String username);
 

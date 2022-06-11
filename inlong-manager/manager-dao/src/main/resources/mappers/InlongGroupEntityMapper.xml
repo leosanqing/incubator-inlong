@@ -60,33 +60,33 @@
         in_charges, followers, status, previous_status, is_deleted, creator, modifier, create_time, modify_time
     </sql>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id"
-            parameterType="org.apache.inlong.manager.dao.entity.InlongGroupEntity">
-        insert into inlong_group (id, inlong_group_id,
-                                  name, description,
-                                  mq_type, mq_resource,
-                                  daily_records, daily_storage,
-                                  peak_records, max_length,
-                                  enable_zookeeper, enable_create_resource,
-                                  lightweight, inlong_cluster_tag,
-                                  ext_params, in_charges,
-                                  followers, status,
-                                  previous_status, is_deleted,
-                                  creator, modifier,
-                                  create_time, modify_time)
-        values (#{id,jdbcType=INTEGER}, #{inlongGroupId,jdbcType=VARCHAR},
-                #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
-                #{mqType,jdbcType=VARCHAR}, #{mqResource,jdbcType=VARCHAR},
-                #{dailyRecords,jdbcType=INTEGER}, #{dailyStorage,jdbcType=INTEGER},
-                #{peakRecords,jdbcType=INTEGER}, #{maxLength,jdbcType=INTEGER},
-                #{enableZookeeper,jdbcType=INTEGER}, #{enableCreateResource,jdbcType=INTEGER},
-                #{lightweight,jdbcType=INTEGER}, #{inlongClusterTag,jdbcType=VARCHAR},
-                #{extParams,jdbcType=LONGVARCHAR}, #{inCharges,jdbcType=VARCHAR},
-                #{followers,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
-                #{previousStatus,jdbcType=INTEGER}, #{isDeleted,jdbcType=INTEGER},
-                #{creator,jdbcType=VARCHAR}, #{modifier,jdbcType=VARCHAR},
-                #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP})
-    </insert>
+<!--    <insert id="insert" useGeneratedKeys="true" keyProperty="id"-->
+<!--            parameterType="org.apache.inlong.manager.dao.entity.InlongGroupEntity">-->
+<!--        insert into inlong_group (id, inlong_group_id,-->
+<!--                                  name, description,-->
+<!--                                  mq_type, mq_resource,-->
+<!--                                  daily_records, daily_storage,-->
+<!--                                  peak_records, max_length,-->
+<!--                                  enable_zookeeper, enable_create_resource,-->
+<!--                                  lightweight, inlong_cluster_tag,-->
+<!--                                  ext_params, in_charges,-->
+<!--                                  followers, status,-->
+<!--                                  previous_status, is_deleted,-->
+<!--                                  creator, modifier,-->
+<!--                                  create_time, modify_time)-->
+<!--        values (#{id,jdbcType=INTEGER}, #{inlongGroupId,jdbcType=VARCHAR},-->
+<!--                #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},-->
+<!--                #{mqType,jdbcType=VARCHAR}, #{mqResource,jdbcType=VARCHAR},-->
+<!--                #{dailyRecords,jdbcType=INTEGER}, #{dailyStorage,jdbcType=INTEGER},-->
+<!--                #{peakRecords,jdbcType=INTEGER}, #{maxLength,jdbcType=INTEGER},-->
+<!--                #{enableZookeeper,jdbcType=INTEGER}, #{enableCreateResource,jdbcType=INTEGER},-->
+<!--                #{lightweight,jdbcType=INTEGER}, #{inlongClusterTag,jdbcType=VARCHAR},-->
+<!--                #{extParams,jdbcType=LONGVARCHAR}, #{inCharges,jdbcType=VARCHAR},-->
+<!--                #{followers,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},-->
+<!--                #{previousStatus,jdbcType=INTEGER}, #{isDeleted,jdbcType=INTEGER},-->
+<!--                #{creator,jdbcType=VARCHAR}, #{modifier,jdbcType=VARCHAR},-->
+<!--                #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP})-->
+<!--    </insert>-->
 
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select

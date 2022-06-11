@@ -17,6 +17,9 @@
 
 package org.apache.inlong.manager.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -26,9 +29,11 @@ import java.util.Date;
  * Inlong group entity, including inlong group id, name, etc.
  */
 @Data
+@TableName("inlong_group")
 public class InlongGroupEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @TableId(type = IdType.AUTO)
     private Integer id;
     private String inlongGroupId;
     private String name;

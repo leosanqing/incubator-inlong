@@ -17,11 +17,9 @@
 
 package org.apache.inlong.manager.dao.config;
 
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.inlong.manager.dao.DaoBaseTest;
 import org.junit.Assert;
 import org.junit.Test;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.sql.DataSource;
@@ -38,18 +36,6 @@ public class JDBCSourceConfigTest extends DaoBaseTest {
     public void dataSource() {
         DataSource dataSource = jdbcSourceConfig.dataSource();
         Assert.assertNotNull(dataSource);
-    }
-
-    @Test
-    public void sqlSessionFactory() throws Exception {
-        SqlSessionFactory sqlSessionFactory = jdbcSourceConfig.sqlSessionFactory();
-        Assert.assertNotNull(sqlSessionFactory);
-    }
-
-    @Test
-    public void sqlSessionTemplate() throws Exception {
-        SqlSessionTemplate sqlSessionTemplate = jdbcSourceConfig.sqlSessionTemplate();
-        Assert.assertNotNull(sqlSessionTemplate);
     }
 
 }

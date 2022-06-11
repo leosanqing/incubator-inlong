@@ -17,30 +17,31 @@
 
 package org.apache.inlong.manager.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
+import org.apache.ibatis.type.JdbcType;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
-/**
- * Role entity, including role code, role name, etc.
- */
 @Data
-@TableName(value = "role")
-public class RoleEntity implements Serializable {
+public abstract class BaseDO implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @TableId(type = IdType.AUTO)
-    private Integer id;
-    private String roleCode;
-    private String roleName;
-    private Date createTime;
-    private Date updateTime;
-    private String createBy;
-    private String updateBy;
-    private Boolean disabled;
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime modifyTime;
+
+    @TableField(fill = FieldFill.INSERT, jdbcType = JdbcType.VARCHAR)
+    private String creator;
+
+    @TableField(fill = FieldFill.INSERT_UPDATE, jdbcType = JdbcType.VARCHAR)
+    private String modifier;
+
+    @TableLogic
+    private Boolean isDeleted;
 
 }

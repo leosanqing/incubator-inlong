@@ -45,7 +45,11 @@ public class InlongGroupEntityMapperTest extends DaoBaseTest {
     public void selectByPrimaryKey() {
         InlongGroupEntity entity = createHeartbeatEntity();
         groupEntityMapper.insert(entity);
-        Assert.assertEquals(entity, groupEntityMapper.selectByPrimaryKey(entity.getId()));
+        InlongGroupEntity inlongGroup = groupEntityMapper.selectById(entity.getId());
+
+        Assert.assertNotNull(inlongGroup);
+        Assert.assertEquals(entity.getMqResource(), inlongGroup.getMqResource());
+        Assert.assertEquals(entity.getInlongGroupId(), inlongGroup.getInlongGroupId());
     }
 
     private InlongGroupEntity createHeartbeatEntity() {

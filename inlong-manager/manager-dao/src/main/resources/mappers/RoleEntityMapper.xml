@@ -44,14 +44,14 @@
         from role
         where id = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" parameterType="org.apache.inlong.manager.dao.entity.RoleEntity">
-        insert into role (id, role_code, role_name,
-                          create_time, update_time, create_by,
-                          update_by, disabled)
-        values (#{id,jdbcType=INTEGER}, #{roleCode,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR},
-                #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR},
-                #{updateBy,jdbcType=VARCHAR}, #{disabled,jdbcType=INTEGER})
-    </insert>
+<!--    <insert id="insert" parameterType="org.apache.inlong.manager.dao.entity.RoleEntity">-->
+<!--        insert into role (id, role_code, role_name,-->
+<!--                          create_time, update_time, create_by,-->
+<!--                          update_by, disabled)-->
+<!--        values (#{id,jdbcType=INTEGER}, #{roleCode,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR},-->
+<!--                #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR},-->
+<!--                #{updateBy,jdbcType=VARCHAR}, #{disabled,jdbcType=INTEGER})-->
+<!--    </insert>-->
     <insert id="insertSelective" parameterType="org.apache.inlong.manager.dao.entity.RoleEntity">
         insert into role
         <trim prefix="(" suffix=")" suffixOverrides=",">

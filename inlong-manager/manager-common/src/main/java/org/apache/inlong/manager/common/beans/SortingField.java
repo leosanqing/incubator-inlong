@@ -17,45 +17,41 @@
 
 package org.apache.inlong.manager.common.beans;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-/**
- * Pagination request
- */
-@ApiModel(value = "Pagination request")
-public class PageRequest {
+@NoArgsConstructor
+public class SortingField implements Serializable {
 
-    @NotNull
-    @Min(1)
-    @Max(500)
-    @ApiModelProperty(value = "current page, default 1", required = true, example = "1")
-    private int pageNum = 1;
+    public static final String ORDER_ASC = "asc";
 
-    @NotNull
-    @Max(200)
-    @ApiModelProperty(value = "page size, default 10", required = true, example = "10")
-    private int pageSize = 10;
+    public static final String ORDER_DESC = "desc";
 
-    public int getPageNum() {
-        return pageNum;
+    private String field;
+
+    private String order;
+
+    public SortingField(String field, String order) {
+        this.field = field;
+        this.order = order;
     }
 
-    public PageRequest setPageNum(int pageNum) {
-        this.pageNum = pageNum;
+    public String getField() {
+        return field;
+    }
+
+    public SortingField setField(String field) {
+        this.field = field;
         return this;
     }
 
-    public int getPageSize() {
-        return pageSize;
+    public String getOrder() {
+        return order;
     }
 
-    public PageRequest setPageSize(int pageSize) {
-        this.pageSize = pageSize;
+    public SortingField setOrder(String order) {
+        this.order = order;
         return this;
     }
 }
